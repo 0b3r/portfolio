@@ -1,13 +1,13 @@
 'use strict';
 
 import route from './style-guide.route';
-import './main.scss';
+import './style-guide.scss';
 
-const mainPageModule = angular.module('main-module', [
+const styleGuidePageModule = angular.module('style-guide-module', [
   'ui.router'
 ]);
 
-mainPageModule
+styleGuidePageModule
     .config(route);
 
-export default mainPageModule;
+export default styleGuidePageModule;
