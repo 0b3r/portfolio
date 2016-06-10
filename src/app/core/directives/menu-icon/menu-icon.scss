@@ -1,0 +1,59 @@
+@import '../../../../assets/styles/sass/bourbon/bourbon';
+@import '../../../../assets/styles/sass/neat/neat';
+@import '../../../../assets/styles/sass/variables';
+.menu-icon{
+  font-size: em(30px);
+  display: inline-block;
+  cursor: pointer;
+  float: right;
+  @include size(2em);
+  @include position(relative, 0 10px null null);
+
+  @include media($largeScreen){
+    @include transform(skewx(-3deg));
+    
+  }
+
+
+  &.menu-icon-open span:before{
+    @include transform(translateY(-0.30em) translateX(-0.50em) rotate(-45deg) scaleX(0.6));
+  }
+
+  &.menu-icon-open span:after{
+    @include transform(translateY(0.30em) translateX(-0.50em) rotate(45deg) scaleX(0.6));
+  }
+
+  span {
+    display: block;
+    margin-top: -0.1em;
+    background-color: #fff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include size(80% 0.1em);
+    @include position(absolute, 50% null null 0);
+    @include transition(background-color 0.3s);
+
+    &:before,
+    &:after {
+      background: #fff;
+      content: '';
+      @include size(100%);
+      @include position(absolute, 0 null null 0);
+      @include transition(transform 0.3s);
+    }
+
+    &:before {
+      @include transform(translateY(-0.5em));
+    }
+
+    &:after {
+      @include transform(translateY(0.5em));
+    }
+
+  }
+
+}
