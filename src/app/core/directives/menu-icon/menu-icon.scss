@@ -11,17 +11,35 @@
 
   @include media($largeScreen){
     @include transform(skewx(-3deg));
+
+    &.menu-icon-open span:before{
+      @include transform(translateY(-0.30em) translateX(-0.50em) rotate(-45deg) scaleX(0.6));
+    }
+
+    &.menu-icon-open span:after{
+      @include transform(translateY(0.30em) translateX(-0.50em) rotate(45deg) scaleX(0.6));
+    }
     
   }
 
+  @include media($mediumScreen){
 
-  &.menu-icon-open span:before{
-    @include transform(translateY(-0.30em) translateX(-0.50em) rotate(-45deg) scaleX(0.6));
+    &.menu-icon-open span:before{
+      //@include transform(translateY(-0.30em) translateX(-0.50em) rotate(-45deg) scaleX(0.6));
+      @include transform(rotate(90deg)); 
+    }
+    
+    &.menu-icon-open span{
+      @include transform( rotate(-45deg));
+    }
+
+    &.menu-icon-open span:after{
+      opacity: 0;
+    }
+    
   }
 
-  &.menu-icon-open span:after{
-    @include transform(translateY(0.30em) translateX(-0.50em) rotate(45deg) scaleX(0.6));
-  }
+  
 
   span {
     display: block;
@@ -35,7 +53,7 @@
     user-select: none;
     @include size(80% 0.1em);
     @include position(absolute, 50% null null 0);
-    @include transition(background-color 0.3s);
+    @include transition(all 0.3s);
 
     &:before,
     &:after {

@@ -27,7 +27,13 @@ header {
     }
 
     nav {
-      @include size(100%);
+      padding-top: 75px;
+      @include size(100% 100vh);
+      @include position(absolute, -100vh null null 0);
+
+      &.nav-open {
+        top: 0;
+      }
     }
   }
   
@@ -42,6 +48,11 @@ header {
 
     nav {
       @include size(em(500px) 100%);
+      @include position(absolute, 0 null null -428px);
+
+      &.nav-open {
+        left: 0;
+      }
     }
   }
 
@@ -53,13 +64,7 @@ header {
   nav {
     z-index: 0;
     background: $navSlide;
-    
-    @include position(absolute, 0 null null -428px);
-    @include transition (all 0.5s $ease-in-out-circ)
-
-    &.nav-open {
-      left: 0;
-    }
+    @include transition (all 0.5s $ease-in-out-circ);
 
     ul {
       float: right;
