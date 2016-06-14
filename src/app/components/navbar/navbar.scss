@@ -1,10 +1,56 @@
-@import '../../../assets/styles/sass/bourbon/bourbon';
-@import '../../../assets/styles/sass/neat/neat';
-@import '../../../assets/styles/sass/variables';
+@import '~_stylesheets/sass/bourbon/bourbon';
+@import '~_stylesheets/sass/neat/neat';
+@import '~_stylesheets/sass/variables';
 
-header {
+header#navbar {
 
-  @include position(fixed, 0 null null 0px);
+
+  @include size(100% 500px);
+  background: $navBar;
+  @include transform(skewy(7deg));
+  outline: 1px solid transparent;
+  @include position(fixed, -140px null null 0px);
+  @include transition(all .5s linear);
+
+  div.menu-icon {
+    @include position(relative, 60px 15px null null);
+    @include transform(skewy(-7deg));
+    float: right;
+    @include transition(all .5s linear);
+  }
+
+  nav {
+    @include position(relative, 500px null null 0);
+    -webkit-box-shadow: inset 0px -4px 6px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px -4px 6px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px -4px 6px 0px rgba(0,0,0,0.75);
+    outline: 1px solid transparent;
+    height: 75px;
+    -webkit-backface-visibility: hidden;
+    font-size: 50px;
+    ul {
+      list-style: none;
+      width: 95%; 
+      display: table;
+      li{
+        display: table-cell;
+      }
+    }
+  }
+
+  &.nav-small {
+     height: 75px;
+     top: 0;
+     @include transform(skewy(0deg));
+
+    div.menu-icon {
+      top: 0px;
+      @include transform(skewy(0deg));
+      float: right;
+    }
+  }
+
+  /*@include position(fixed, 0 null null 0px);
   
   @include media($mediumScreen){
     @include size(100% em(60px));
@@ -63,5 +109,5 @@ header {
         font-size: em(50px);
       }
     }
-  }
+  }*/
 }

@@ -3,6 +3,7 @@
 const shared = angular.module('core.shared', []);
 
 require('./directives/menu-icon/menu-icon.directive')(shared);
+require('./directives/preload/preload.directive')(shared);
 require('./directives/validation-test/validation-test.directive')(shared);
 
 require('./services/constants')(shared);

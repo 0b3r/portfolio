@@ -1,10 +1,13 @@
-<header>
+<header id="navbar" class="preload">
+    <img src="{{ vm.logo }}" alt="">
     <div id="menu-wrapper">
         <menu-icon></menu-icon>
     </div>
     <nav>
         <ul>
-            <li ng-repeat="item in vm.menu">{{ item.name }}</li>
+            <li ng-repeat="item in vm.menu">
+              <a ui-sref="{{ item.link }}">{{ item.name }}</a>
+            </li>
         </ul>
     </nav>
 </header>

@@ -5,12 +5,10 @@
   font-size: em(30px);
   display: inline-block;
   cursor: pointer;
-  float: right;
   @include size(2em);
-  @include position(relative, 0 10px null null);
 
-  @include media($largeScreen){
-    @include transform(skewx(-3deg));
+  /*@include media($largeScreen){
+    
 
     &.menu-icon-open span:before{
       @include transform(translateY(-0.30em) translateX(-0.50em) rotate(-45deg) scaleX(0.6));
@@ -20,9 +18,8 @@
       @include transform(translateY(0.30em) translateX(-0.50em) rotate(45deg) scaleX(0.6));
     }
     
-  }
+  }*/
 
-  @include media($mediumScreen){
 
     &.menu-icon-open span:before{
       //@include transform(translateY(-0.30em) translateX(-0.50em) rotate(-45deg) scaleX(0.6));
@@ -37,7 +34,7 @@
       opacity: 0;
     }
     
-  }
+
 
   
 

@@ -8,13 +8,6 @@ var Manifest          = require('manifest-revision-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-//var bourbon           = require('node-bourbon').includePaths;
-//var neat              = require('node-neat').includePaths;
-//var bourbon           = require('node-refills').includePaths;
-
-//var sassPaths = bourbon.map((sassPath) => `includePaths[]=${sassPath}`).join('&');
-//console.log(sassPaths);
-
 var NODE_ENV = process.env.NODE_ENV || "production";
 var DEVELOPMENT  = NODE_ENV === "production" ? false : true;
 var stylesLoader = 'css-loader?sourceMap!postcss-loader!sass-loader?outputStyle=expanded&sourceMap=true&sourceMapContents=true&include';
@@ -40,14 +33,13 @@ module.exports = function(_path) {
 
     // resolves modules
     resolve: {
-      extensions: ['', '.js', '.scss'],
+      extensions: ['', '.js'],
       modulesDirectories: ['node_modules'],
       alias: {
         _appRoot:     path.join(_path, 'src', 'app'),
-        _images:      path.join(_path, 'src', 'app', 'assets', 'images'),
-        _stylesheets: path.join(_path, 'src', 'app', 'assets', 'styles'),
-        _scripts:     path.join(_path, 'src', 'app', 'assets', 'js'),
-        bourbon:      path.join(_path, 'src', 'app', 'assets', 'styles', 'sass', 'bourbon'),
+        _images:      path.join(_path, 'src', 'assets', 'images'),
+        _stylesheets: path.join(_path, 'src', 'assets', 'styles'),
+        _scripts:     path.join(_path, 'src', 'assets', 'js'),
       }
     },
 
@@ -102,7 +94,7 @@ module.exports = function(_path) {
           "url-loader?name=assets/fonts/[name]_[hash].[ext]"
         ]
       }, {
-        test: /\.(jpe?g|png|gif)$/i,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
           'url-loader?name=assets/images/[name]_[hash].[ext]&limit=10000'
         ]
@@ -171,8 +163,6 @@ module.exports = function(_path) {
       })
     ]);
   }
-
-  console.log(webpackConfig.resolve.alias);
 
   return webpackConfig;
 

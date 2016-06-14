@@ -5,7 +5,7 @@ import '!!file-loader?name=[name].[ext]!../favicon.ico';
 
 // main App module
 import "./index.module";
-import "../assets/styles/sass/index.scss";
+import "_stylesheets/sass/index.scss";
 
 
 angular.element(document).ready(function () {

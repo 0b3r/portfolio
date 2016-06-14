@@ -1,35 +1,67 @@
 'use strict';
 
 import navbarTpl from './navbar.html';
+const logo = require('_images/Logo.svg');
 
-function navbarComponent($log) {
+function navbarComponent($window, $log) {
   'ngInject';
 
-  var directive = {
+  let directive = {
     restrict: 'E',
     templateUrl: navbarTpl,
     controller: NavbarController,
     controllerAs: 'vm',
     bindToController: true,
-    replace: true
+    replace: true,
+    link: linkFn
   };
 
   return directive;
 
   function NavbarController () {
     
-    var self = this;
+    let self = this;
+
+    console.log(logo);
+
+    self.logo = logo;
+
     self.menu = [
       {
-        name: 'Home'
+        name: 'Home',
+        link: 'sdfdfs'
       },
       {
-        name: 'About'
+        name: 'About',
+        link: 'sdfsdf'
       },
       {
-        name: 'Projects'
+        name: 'Projects',
+        link: 'sdfsf'
       },
+      {
+        name: 'Style Guide',
+        link: 'styleGuide'
+      }
     ];
+  }
+
+  function linkFn (scope, elem, attrs, ngModelCtrl) {
+
+    let navResizeHandler = function(e){
+      let distanceY = $window.pageYOffset,
+          shrinkOn = 250;
+
+      if(distanceY > shrinkOn){
+        elem.addClass('nav-small');
+      }else{
+        if(elem.hasClass('nav-small')){
+          elem.removeClass('nav-small');
+        }
+      }
+    };
+
+    angular.element($window).bind('scroll', navResizeHandler);
   }
 
 }

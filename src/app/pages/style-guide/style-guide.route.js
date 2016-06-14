@@ -7,10 +7,10 @@ function routeConfig($stateProvider) {
 
   $stateProvider
     .state('styleGuide', {
-      url: '/',
+      url: '/style-guide/',
       templateUrl: styleGuideTpl,
-      controller: require('./style-guide.controller')
-      controllerAs: 'sg',
+      controller: require('./style-guide.controller'),
+      controllerAs: 'sg'
     });
 
 }
