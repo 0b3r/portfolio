@@ -1,12 +1,16 @@
-<header id="navbar" class="preload">
-    <img src="{{ vm.logo }}" alt="">
-    <div id="menu-wrapper">
+<header class="head" intro="">
+    <!--<div id="menu-wrapper">
         <menu-icon></menu-icon>
-    </div>
-    <nav>
+    </div>-->
+    <a id="main-logo-link" href="#">
+        <logo></logo>
+    </a>
+    
+    <nav id="main-nav" class="nav-indicator" style="display: none;">
+        <i class="active-marker"></i>
         <ul>
-            <li ng-repeat="item in vm.menu">
-              <a ui-sref="{{ item.link }}">{{ item.name }}</a>
+            <li class="nav-item" ng-repeat="item in nav.menu">
+              <a class="page-link" ng-class="{'active': item.active}" ui-sref="{{ item.link }}">{{ item.name }}</a>
             </li>
         </ul>
     </nav>
