@@ -2,112 +2,73 @@
 @import '~_stylesheets/sass/neat/neat';
 @import '~_stylesheets/sass/variables';
 
-header#navbar {
 
+$active-color: #0074D9;
 
-  @include size(100% 500px);
-  background: $navBar;
-  @include transform(skewy(7deg));
-  outline: 1px solid transparent;
-  @include position(fixed, -140px null null 0px);
-  @include transition(all .5s linear);
-
-  div.menu-icon {
-    @include position(relative, 60px 15px null null);
-    @include transform(skewy(-7deg));
-    float: right;
-    @include transition(all .5s linear);
-  }
-
-  nav {
-    @include position(relative, 500px null null 0);
-    -webkit-box-shadow: inset 0px -4px 6px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px -4px 6px 0px rgba(0,0,0,0.75);
-    box-shadow: inset 0px -4px 6px 0px rgba(0,0,0,0.75);
-    outline: 1px solid transparent;
-    height: 75px;
-    -webkit-backface-visibility: hidden;
-    font-size: 50px;
-    ul {
-      list-style: none;
-      width: 95%; 
-      display: table;
-      li{
-        display: table-cell;
-      }
-    }
-  }
-
-  &.nav-small {
-     height: 75px;
-     top: 0;
-     @include transform(skewy(0deg));
-
-    div.menu-icon {
-      top: 0px;
-      @include transform(skewy(0deg));
-      float: right;
-    }
-  }
-
-  /*@include position(fixed, 0 null null 0px);
+.head {
   
-  @include media($mediumScreen){
-    @include size(100% em(60px));
+  box-sizing: border-box;
+  background: #fff;
+  overflow: hidden;
+  @include size(100% 55px);
+  @include position(fixed, 0 null null 0);
 
-    div#menu-wrapper { 
-      @include size(100% em(60px));
-      @include position(absolute, 0 null null 0);
-    }
-
-    nav {
-      padding-top: 75px;
-      @include size(100% 100vh);
-      @include position(absolute, -100vh null null 0);
-
-      &.nav-open {
-        top: 0;
-      }
-    }
-  }
-  
-  @include media($largeScreen){
-    @include size(em(150px) 100%);
-
-    div#menu-wrapper { 
-      @include transform(skewx(3deg));
-      @include size(em(150px) 100%);
-      @include position(absolute, 0 null null -39px);
-    }
-
-    nav {
-      @include size(em(500px) 100%);
-      @include position(absolute, 0 null null -428px);
-
-      &.nav-open {
-        left: 0;
-      }
-    }
+  #main-logo-link {
+    @include position(relative, 45% null null 45%);
+    @include size(150px auto);
+    padding: 15px;
+    display: block;
+    @include transform(scale(2));
   }
 
-  div#menu-wrapper { 
-    z-index: 1;
-    background: $navBar;
-  }
+  #main-nav {
+    
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    list-style: none;
 
-  nav {
-    z-index: 0;
-    background: $navSlide;
-    @include transition (all 0.5s $ease-in-out-circ);
+    .nav-item {
+      border: none;
+      text-align: right;
+      cursor: pointer;
+      @include margin(5px 5px);
+      padding-right: 10px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      outline: none;
+      position: relative;
+      border: solid 1px transparent;
+      border-radius:10px;
+      -webkit-font-smoothing: antialiased;
 
-    ul {
-      float: right;
-      margin-right: em(20px);
+      .page-link{
+        color: #000;
+        display: block;
+        @include padding(5px 5px);
       
-      li {
-        color: #FFF;
-        font-size: em(50px);
+        &.active {
+          color: $active-color;
+        }
+      
       }
+      
     }
-  }*/
+
+    .active-marker {
+    background: $active-color;
+    bottom: 0;
+    display: none;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    transition: all .2s cubic-bezier(.25, .25, .25, 1.25);
+    width: auto;
+  }
+
+  }
+
+
+
 }
